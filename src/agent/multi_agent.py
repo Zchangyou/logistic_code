@@ -16,6 +16,7 @@ import os
 import pandas as pd
 import numpy as np
 
+from src.agent.agents.purchase_agent import PurchaseAgent, PurchaseProposal
 from src.agent.agents.inventory_agent import InventoryAgent, InventoryProposal
 from src.agent.agents.logistics_agent import LogisticsAgent, LogisticsProposal
 from src.agent.agents.demand_agent import DemandAgent, DemandProposal
@@ -39,6 +40,7 @@ class AgentMessage:
 class DisposalReport:
     """全链路处置报告 (Full-chain Disposal Report)"""
     scenario: str
+    purchase_proposal: PurchaseProposal
     inventory_proposal: InventoryProposal
     logistics_proposal: LogisticsProposal
     demand_proposal: DemandProposal
@@ -85,6 +87,7 @@ class DisposalReport:
 
         return {
             "scenario": self.scenario,
+            "purchase_summary": self.purchase_proposal.summary,
             "inventory_summary": self.inventory_proposal.summary,
             "logistics_summary": self.logistics_proposal.summary,
             "demand_summary": self.demand_proposal.summary,
@@ -103,13 +106,14 @@ class MultiAgentSystem:
     """多智能体协同系统 (Multi-Agent Coordination System)
 
     管理四个智能体的生命周期与协作流程：
-    1. 并行运行三个领域智能体（库存/物流/需求）
+    1. 并行运行四个领域智能体（采购/库存/物流/需求）
     2. 收集提案，传递给协调智能体
     3. 协调智能体消解冲突，生成综合处置计划
     4. 执行反馈闭环，更新网络风险评分
     """
 
     def __init__(self) -> None:
+        self.purchase_agent = PurchaseAgent()
         self.inventory_agent = InventoryAgent()
         self.logistics_agent = LogisticsAgent()
         self.demand_agent = DemandAgent()
@@ -150,7 +154,13 @@ class MultiAgentSystem:
         print(f"  [多智能体] 场景: {scenario}，分析节点数: "
               f"{len(target_nodes) if target_nodes else '全部'}")
 
-        # Step 1: 三领域智能体并行分析
+        # Step 1: 四领域智能体并行分析
+        print("  [采购智能体] 分析中 ...")
+        pur_proposal = self.purchase_agent.analyze(
+            sim_data, risk_results, scenario, target_nodes
+        )
+        self._send(AgentMessage("purchase", "coordinator", "proposal", pur_proposal))
+
         print("  [库存智能体] 分析中 ...")
         inv_proposal = self.inventory_agent.analyze(
             sim_data, risk_results, scenario, target_nodes
@@ -172,6 +182,7 @@ class MultiAgentSystem:
         # Step 2: 协调智能体整合
         print("  [协调智能体] 整合方案、消解冲突 ...")
         integrated_plan = self.coordinator.coordinate(
+            pur_proposal,
             inv_proposal, log_proposal, dem_proposal,
             scenario=scenario, budget_limit=budget_limit,
         )
@@ -185,6 +196,7 @@ class MultiAgentSystem:
 
         return DisposalReport(
             scenario=scenario,
+            purchase_proposal=pur_proposal,
             inventory_proposal=inv_proposal,
             logistics_proposal=log_proposal,
             demand_proposal=dem_proposal,

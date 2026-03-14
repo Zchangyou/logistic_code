@@ -2,6 +2,12 @@
   "phase": 6,
   "description": "多智能体协同与系统集成 Multi-Agent Coordination and System Integration",
   "agents": {
+    "purchase_agent": {
+      "name": "采购策略优化智能体",
+      "actions_count": 17,
+      "total_risk_reduction": 0.45,
+      "summary": "采购智能体：识别 17 个节点存在采购集中风险，其中 2 个高优先级；综合处置预期降低风险 45.0%，综合成本指数 0.48。"
+    },
     "inventory_agent": {
       "name": "库存风险感知智能体",
       "actions_count": 10,
@@ -34,20 +40,25 @@
     "coordinator": {
       "name": "协调智能体",
       "integrated_actions": 7,
-      "conflicts_detected": 3,
-      "conflicts_resolved": 3,
-      "summary": "协调智能体：整合三方案后生成 7 条综合处置动作，检测到 3 处冲突并已消解；预期综合风险降低 60.0%，综合成本指数 0.36（预算上限 2.5）。"
+      "conflicts_detected": 7,
+      "conflicts_resolved": 7,
+      "summary": "协调智能体：整合四方案后生成 7 条综合处置动作，检测到 7 处冲突并已消解；预期综合风险降低 60.0%，综合成本指数 0.35（预算上限 2.5）。"
     }
   },
   "integrated_plan": {
     "scenario": "S1_chip_shortage",
-    "summary": "协调智能体：整合三方案后生成 7 条综合处置动作，检测到 3 处冲突并已消解；预期综合风险降低 60.0%，综合成本指数 0.36（预算上限 2.5）。",
+    "summary": "协调智能体：整合四方案后生成 7 条综合处置动作，检测到 7 处冲突并已消解；预期综合风险降低 60.0%，综合成本指数 0.35（预算上限 2.5）。",
     "total_expected_risk_reduction": 0.6,
-    "total_cost_index": 0.3571,
-    "inventory_contribution": 0.25,
-    "logistics_contribution": 0.11,
-    "demand_contribution": 0.08,
+    "total_cost_index": 0.3486,
+    "inventory_contribution": 0.15,
+    "logistics_contribution": 0.088,
+    "demand_contribution": 0.064,
     "conflicts": [
+      {
+        "node_id": "T3-RE",
+        "type": "资源竞争",
+        "resolution": "按场景权重分配预算，优先执行高优先级动作"
+      },
       {
         "node_id": "T3-SI",
         "type": "资源竞争",
@@ -62,45 +73,62 @@
         "node_id": "T2-E2",
         "type": "资源竞争",
         "resolution": "按场景权重分配预算，优先执行高优先级动作"
+      },
+      {
+        "node_id": "T3-CU",
+        "type": "资源竞争",
+        "resolution": "按场景权重分配预算，优先执行高优先级动作"
+      },
+      {
+        "node_id": "T3-ST",
+        "type": "资源竞争",
+        "resolution": "按场景权重分配预算，优先执行高优先级动作"
+      },
+      {
+        "node_id": "T3-GL",
+        "type": "资源竞争",
+        "resolution": "按场景权重分配预算，优先执行高优先级动作"
       }
     ],
     "actions": [
       {
-        "node_id": "T2-ECU",
-        "node_name": "ECU控制单元",
+        "node_id": "T3-SI",
+        "node_name": "芯片晶圆供应商",
         "priority": "高",
         "source_agents": [
+          "采购",
           "库存",
-          "物流",
-          "需求"
+          "物流"
         ],
-        "combined_action": "[库存]紧急补充安全库存至36天（当前14天，缺口22天）；[物流]与物流商签订应急保障协议，分散运输渠道，可靠性提升至 90%；[需求]持续监测需求波动趋势，预备快速响应预案",
-        "cost_index": 0.5,
-        "expected_risk_reduction": 0.17,
+        "combined_action": "[采购]立即启动第二供应商认证与试供，签订长协锁量以分散单一来源风险；[库存]紧急补充安全库存至54天（当前14天，缺口40天）；[物流]与物流商签订应急保障协议，分散运输渠道，可靠性提升至 90%",
+        "cost_index": 0.455,
+        "expected_risk_reduction": 0.153,
         "scores": {
-          "risk_reduction": 6.8,
-          "cost": 5.0,
+          "risk_reduction": 6.12,
+          "cost": 5.45,
           "efficiency": 7.0,
           "feasibility": 6.5,
           "urgency": 10
         }
       },
       {
-        "node_id": "T3-SI",
-        "node_name": "芯片晶圆供应商",
+        "node_id": "T2-ECU",
+        "node_name": "ECU控制单元",
         "priority": "高",
         "source_agents": [
+          "采购",
           "库存",
-          "物流"
+          "物流",
+          "需求"
         ],
-        "combined_action": "[库存]紧急补充安全库存至54天（当前14天，缺口40天）；[物流]与物流商签订应急保障协议，分散运输渠道，可靠性提升至 90%",
-        "cost_index": 0.45,
-        "expected_risk_reduction": 0.155,
+        "combined_action": "[采购]开展备选供应商开发，优化采购份额分配，降低集中采购依赖；[库存]紧急补充安全库存至36天（当前14天，缺口22天）；[物流]与物流商签订应急保障协议，分散运输渠道，可靠性提升至 90%；[需求]持续监测需求波动趋势，预备快速响应预案",
+        "cost_index": 0.435,
+        "expected_risk_reduction": 0.141,
         "scores": {
-          "risk_reduction": 6.2,
-          "cost": 5.5,
+          "risk_reduction": 5.64,
+          "cost": 5.65,
           "efficiency": 7.0,
-          "feasibility": 7.0,
+          "feasibility": 6.0,
           "urgency": 10
         }
       },
@@ -109,35 +137,36 @@
         "node_name": "涡轮增压器",
         "priority": "高",
         "source_agents": [
+          "采购",
           "库存",
           "物流",
           "需求"
         ],
-        "combined_action": "[库存]计划性补库至36天（缺口10天）；[物流]立即启用备用物流路线，目标可靠性 90%，当前65%；[需求]持续监测需求波动趋势，预备快速响应预案",
-        "cost_index": 0.4125,
-        "expected_risk_reduction": 0.14,
+        "combined_action": "[采购]开展备选供应商开发，优化采购份额分配，降低集中采购依赖；[库存]计划性补库至36天（缺口10天）；[物流]立即启用备用物流路线，目标可靠性 90%，当前65%；[需求]持续监测需求波动趋势，预备快速响应预案",
+        "cost_index": 0.395,
+        "expected_risk_reduction": 0.127,
         "scores": {
-          "risk_reduction": 5.6,
-          "cost": 5.88,
+          "risk_reduction": 5.08,
+          "cost": 6.05,
           "efficiency": 7.0,
-          "feasibility": 6.5,
+          "feasibility": 6.0,
           "urgency": 10
         }
       },
       {
-        "node_id": "T2-SN",
-        "node_name": "传感器模组",
+        "node_id": "T3-RE",
+        "node_name": "稀土材料供应商",
         "priority": "高",
         "source_agents": [
-          "库存",
-          "需求"
+          "采购",
+          "库存"
         ],
-        "combined_action": "[库存]紧急补充安全库存至36天（当前17天，缺口19天）；[需求]持续监测需求波动趋势，预备快速响应预案",
-        "cost_index": 0.4,
-        "expected_risk_reduction": 0.14,
+        "combined_action": "[采购]立即启动第二供应商认证与试供，签订长协锁量以分散单一来源风险；[库存]紧急补充安全库存至54天（当前10天，缺口44天）",
+        "cost_index": 0.375,
+        "expected_risk_reduction": 0.129,
         "scores": {
-          "risk_reduction": 5.6,
-          "cost": 6.0,
+          "risk_reduction": 5.16,
+          "cost": 6.25,
           "efficiency": 7.0,
           "feasibility": 7.0,
           "urgency": 10
@@ -148,35 +177,37 @@
         "node_name": "铜材供应商",
         "priority": "高",
         "source_agents": [
+          "采购",
           "库存",
           "需求"
         ],
-        "combined_action": "[库存]紧急补充安全库存至54天（当前22天，缺口32天）；[需求]持续监测需求波动趋势，预备快速响应预案",
-        "cost_index": 0.4,
-        "expected_risk_reduction": 0.14,
+        "combined_action": "[采购]开展备选供应商开发，优化采购份额分配，降低集中采购依赖；[库存]紧急补充安全库存至54天（当前22天，缺口32天）；[需求]持续监测需求波动趋势，预备快速响应预案",
+        "cost_index": 0.355,
+        "expected_risk_reduction": 0.117,
         "scores": {
-          "risk_reduction": 5.6,
-          "cost": 6.0,
+          "risk_reduction": 4.68,
+          "cost": 6.45,
           "efficiency": 7.0,
-          "feasibility": 7.0,
+          "feasibility": 6.5,
           "urgency": 10
         }
       },
       {
-        "node_id": "T3-PCB",
-        "node_name": "印制电路板",
+        "node_id": "T3-ST",
+        "node_name": "T3-ST",
         "priority": "高",
         "source_agents": [
+          "采购",
           "库存"
         ],
-        "combined_action": "[库存]计划性补库至45天（缺口10天）",
-        "cost_index": 0.2,
-        "expected_risk_reduction": 0.075,
+        "combined_action": "[采购]开展备选供应商开发，优化采购份额分配，降低集中采购依赖；[库存]紧急补充安全库存至45天（当前26天，缺口19天）",
+        "cost_index": 0.315,
+        "expected_risk_reduction": 0.105,
         "scores": {
-          "risk_reduction": 3.0,
-          "cost": 8.0,
+          "risk_reduction": 4.2,
+          "cost": 6.85,
           "efficiency": 7.0,
-          "feasibility": 7.5,
+          "feasibility": 7.0,
           "urgency": 10
         }
       },
@@ -188,11 +219,11 @@
           "需求"
         ],
         "combined_action": "[需求]实施订单平滑策略与信息共享机制，将需求波动系数从0.35控制至0.20以下",
-        "cost_index": 0.1375,
-        "expected_risk_reduction": 0.05,
+        "cost_index": 0.11,
+        "expected_risk_reduction": 0.04,
         "scores": {
-          "risk_reduction": 2.0,
-          "cost": 8.62,
+          "risk_reduction": 1.6,
+          "cost": 8.9,
           "efficiency": 7.0,
           "feasibility": 7.5,
           "urgency": 10
@@ -201,15 +232,15 @@
     ]
   },
   "e2e_validation": {
-    "agents_count": 3,
+    "agents_count": 4,
     "conflicts_all_resolved": true,
-    "overall_risk_reduction": 0.112,
+    "overall_risk_reduction": 0.1027,
     "T3_SI_pre": 0.5839,
-    "T3_SI_post": 0.4934,
+    "T3_SI_post": 0.4946,
     "T2_ECU_pre": 0.5822,
-    "T2_ECU_post": 0.4832,
+    "T2_ECU_post": 0.5001,
     "OEM_pre": 0.4578,
-    "OEM_post": 0.4349,
+    "OEM_post": 0.4395,
     "risk_score_decreased": true
   },
   "pre_disposal_risk_scores": {
@@ -240,18 +271,18 @@
     "T3-AL": 0.2975
   },
   "post_disposal_risk_scores": {
-    "T3-RE": 0.5989,
-    "T3-SI": 0.4934,
-    "T2-ECU": 0.4832,
-    "T2-SN": 0.4902,
-    "T1-E": 0.491,
-    "T2-E2": 0.4627,
-    "T3-CU": 0.4197,
-    "OEM": 0.4349,
+    "T3-RE": 0.5216,
+    "T3-SI": 0.4946,
+    "T2-ECU": 0.5001,
+    "T2-SN": 0.5415,
+    "T1-E": 0.5168,
+    "T2-E2": 0.4697,
+    "T3-CU": 0.4309,
+    "OEM": 0.4395,
     "T1-P": 0.4051,
-    "T3-ST": 0.3947,
+    "T3-ST": 0.3533,
     "T2-T1": 0.387,
-    "T3-PCB": 0.3576,
+    "T3-PCB": 0.3866,
     "T2-B1": 0.3804,
     "T3-MG": 0.3655,
     "T3-GL": 0.3583,
@@ -266,5 +297,5 @@
     "T2-E1": 0.318,
     "T3-AL": 0.2975
   },
-  "message_log_count": 4
+  "message_log_count": 5
 }

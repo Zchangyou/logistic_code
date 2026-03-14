@@ -2,7 +2,7 @@
   "phase": 2,
   "description": "参数化网络构造与拓扑分析",
   "description_en": "Parametric Network Construction and Topology Analysis",
-  "elapsed_seconds": 1.88,
+  "elapsed_seconds": 2.0,
   "case_network": {
     "name": "汽车发动机供应链",
     "node_count": 25,

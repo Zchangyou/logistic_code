@@ -14,6 +14,7 @@ from typing import List, Dict, Optional, Tuple
 from src.agent.agents.inventory_agent import InventoryProposal
 from src.agent.agents.logistics_agent import LogisticsProposal
 from src.agent.agents.demand_agent import DemandProposal
+from src.agent.agents.purchase_agent import PurchaseProposal
 
 
 # --------------------------------------------------------------------------- #
@@ -75,14 +76,15 @@ class CoordinatorAgent:
 
     # 各智能体在不同风险场景中的可信度权重
     _SCENARIO_WEIGHTS = {
-        "S1_chip_shortage": {"inventory": 0.50, "logistics": 0.25, "demand": 0.25},
-        "S2_rare_earth":    {"inventory": 0.45, "logistics": 0.30, "demand": 0.25},
-        "S3_region":        {"inventory": 0.25, "logistics": 0.55, "demand": 0.20},
-        "S4_demand_shock":  {"inventory": 0.25, "logistics": 0.25, "demand": 0.50},
+        "S1_chip_shortage": {"purchase": 0.30, "inventory": 0.30, "logistics": 0.20, "demand": 0.20},
+        "S2_rare_earth":    {"purchase": 0.35, "inventory": 0.25, "logistics": 0.25, "demand": 0.15},
+        "S3_region":        {"purchase": 0.15, "inventory": 0.20, "logistics": 0.45, "demand": 0.20},
+        "S4_demand_shock":  {"purchase": 0.15, "inventory": 0.20, "logistics": 0.20, "demand": 0.45},
     }
 
     def coordinate(
         self,
+        purchase_proposal: PurchaseProposal,
         inventory_proposal: InventoryProposal,
         logistics_proposal: LogisticsProposal,
         demand_proposal: DemandProposal,
@@ -102,11 +104,20 @@ class CoordinatorAgent:
             IntegratedPlan: 综合处置计划
         """
         weights = self._SCENARIO_WEIGHTS.get(
-            scenario, {"inventory": 0.4, "logistics": 0.3, "demand": 0.3}
+            scenario, {"purchase": 0.25, "inventory": 0.30, "logistics": 0.25, "demand": 0.20}
         )
 
         # 汇聚各方案的节点级动作
         all_actions: Dict[str, Dict] = {}
+
+        for action in purchase_proposal.actions:
+            _upsert(all_actions, action.node_id, {
+                "node_name": action.node_name,
+                "purchase": action,
+                "combined_priority_score": _priority_score(action.priority) * weights["purchase"],
+                "total_cost": action.cost_index * weights["purchase"],
+                "total_risk_red": action.expected_risk_reduction * weights["purchase"],
+            })
 
         for action in inventory_proposal.actions:
             _upsert(all_actions, action.node_id, {
@@ -180,7 +191,7 @@ class CoordinatorAgent:
             logistics_contribution=round(logistics_proposal.total_risk_reduction * weights["logistics"], 4),
             demand_contribution=round(demand_proposal.total_risk_reduction * weights["demand"], 4),
             summary=(
-                f"协调智能体：整合三方案后生成 {len(integrated)} 条综合处置动作，"
+                f"协调智能体：整合四方案后生成 {len(integrated)} 条综合处置动作，"
                 f"检测到 {len(conflicts)} 处冲突并已消解；"
                 f"预期综合风险降低 {total_risk_red:.1%}，"
                 f"综合成本指数 {total_cost:.2f}（预算上限 {budget_limit:.1f}）。"
@@ -195,7 +206,7 @@ class CoordinatorAgent:
         """检测多智能体方案间的冲突。"""
         conflicts = []
         for node_id, info in all_actions.items():
-            agents = [k for k in ("inventory", "logistics", "demand") if k in info]
+            agents = [k for k in ("purchase", "inventory", "logistics", "demand") if k in info]
             if len(agents) >= 2:
                 # 检查成本重叠
                 costs = sum(
@@ -219,7 +230,7 @@ class CoordinatorAgent:
         weights: Dict[str, float],
     ) -> IntegratedAction:
         """构建单节点的综合处置动作。"""
-        agents = [k for k in ("inventory", "logistics", "demand") if k in info]
+        agents = [k for k in ("purchase", "inventory", "logistics", "demand") if k in info]
         parts = []
         cost_sum, risk_red_sum = 0.0, 0.0
 
@@ -267,7 +278,12 @@ def _priority_score(priority: str) -> float:
 
 
 def _agent_cn(agent: str) -> str:
-    return {"inventory": "库存", "logistics": "物流", "demand": "需求"}.get(agent, agent)
+    return {
+        "purchase": "采购",
+        "inventory": "库存",
+        "logistics": "物流",
+        "demand": "需求",
+    }.get(agent, agent)
 
 
 def _upsert(d: Dict, key: str, updates: Dict) -> None:

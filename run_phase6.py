@@ -5,7 +5,7 @@ Phase 6: Multi-Agent Coordination and System Integration
 运行方式: conda run -n logistic python run_phase6.py
 
 功能：
-1. 初始化三个领域智能体（库存/物流/需求）
+1. 初始化四个领域智能体（采购/库存/物流/需求）
 2. 多智能体协同处置芯片停供场景（S1）
 3. 反馈闭环：处置结果→网络模型风险评分更新
 4. 端到端全链路验证
@@ -98,17 +98,19 @@ def plot_multi_agent_architecture() -> plt.Figure:
     # ---- 第二列：领域智能体层 ----
     ax.text(6.5, 8.5, "领域智能体层\n(Domain Agent Layer)",
             ha="center", va="center", fontsize=10, color=C_AGENT, fontweight="bold")
-    box(ax, 6.5, 7.4, 2.8, 0.75, C_AGENT,
-        "库存风险感知智能体\nInventory Risk Agent\n[安全库存·补库建议]", fontsize=9)
-    box(ax, 6.5, 5.8, 2.8, 0.75, C_AGENT,
-        "物流异常分析智能体\nLogistics Anomaly Agent\n[备用路线·区域风险]", fontsize=9)
-    box(ax, 6.5, 4.2, 2.8, 0.75, C_AGENT,
-        "需求预测智能体\nDemand Forecasting Agent\n[趋势分析·牛鞭效应]", fontsize=9)
+    box(ax, 6.5, 7.9, 2.8, 0.65, C_AGENT,
+        "采购策略优化智能体\nPurchase Strategy Agent\n[供应商替换·长协锁量]", fontsize=8.5)
+    box(ax, 6.5, 6.5, 2.8, 0.65, C_AGENT,
+        "库存风险感知智能体\nInventory Risk Agent\n[安全库存·补库建议]", fontsize=8.5)
+    box(ax, 6.5, 5.1, 2.8, 0.65, C_AGENT,
+        "物流异常分析智能体\nLogistics Anomaly Agent\n[备用路线·区域风险]", fontsize=8.5)
+    box(ax, 6.5, 3.7, 2.8, 0.65, C_AGENT,
+        "需求预测智能体\nDemand Forecasting Agent\n[趋势分析·牛鞭效应]", fontsize=8.5)
 
     # ---- 第三列：协调智能体 ----
     ax.text(10.5, 8.5, "协调层\n(Coordination Layer)",
             ha="center", va="center", fontsize=10, color=C_COORD, fontweight="bold")
-    box(ax, 10.5, 6.0, 2.8, 2.2, C_COORD,
+    box(ax, 10.5, 5.8, 2.8, 2.6, C_COORD,
         "协调智能体\nCoordinator Agent\n\n①冲突检测\n②多目标权衡\n③综合处置方案", fontsize=9)
 
     # ---- 第四列：输出层 ----
@@ -124,19 +126,19 @@ def plot_multi_agent_architecture() -> plt.Figure:
         "(Feedback Loop: Disposal → Network Update → Next Assessment)", fontsize=8.5)
 
     # ---- 箭头：输入→智能体 ----
-    for y_src, y_dst in [(7.4, 7.4), (6.2, 5.8), (5.0, 4.2)]:
+    for y_src, y_dst in [(7.4, 7.9), (6.2, 6.5), (5.0, 5.1), (5.0, 3.7)]:
         arrow(ax, 3.3, y_src, 5.1, y_dst, C_INPUT)
 
     # ---- 箭头：智能体→协调 ----
-    for y in [7.4, 5.8, 4.2]:
-        arrow(ax, 7.9, y, 9.1, 6.0 + (y - 5.8) * 0.3, C_AGENT)
+    for y in [7.9, 6.5, 5.1, 3.7]:
+        arrow(ax, 7.9, y, 9.1, 5.8 + (y - 5.1) * 0.2, C_AGENT)
 
     # ---- 箭头：协调→输出 ----
     for y in [7.2, 6.0, 4.8]:
         arrow(ax, 11.9, 6.0 + (y - 6.0) * 0.2, 12.45, y, C_COORD)
 
     # ---- 反馈箭头 ----
-    ax.annotate("", xy=(6.5, 2.33), xytext=(13.2, 4.5),
+    ax.annotate("", xy=(6.5, 2.33), xytext=(13.2, 4.2),
                 arrowprops=dict(arrowstyle="->", color=C_FEED, lw=1.8,
                                 connectionstyle="arc3,rad=0.3"), zorder=2)
 
@@ -445,7 +447,8 @@ def main():
         budget_limit=2.5,
     )
 
-    print(f"\n  [OK] 库存智能体处置动作数: {len(report.inventory_proposal.actions)}")
+    print(f"\n  [OK] 采购智能体处置动作数: {len(report.purchase_proposal.actions)}")
+    print(f"  [OK] 库存智能体处置动作数: {len(report.inventory_proposal.actions)}")
     print(f"  [OK] 物流智能体处置动作数: {len(report.logistics_proposal.actions)}")
     print(f"  [OK] 需求智能体处置动作数: {len(report.demand_proposal.actions)}")
     print(f"  [OK] 协调智能体整合动作数: {len(report.integrated_plan.integrated_actions)}")
@@ -453,6 +456,8 @@ def main():
     print(f"  [OK] 综合风险降低: {report.overall_risk_reduction:.1%}")
 
     # 打印处置方案摘要
+    print(f"\n  --- 采购智能体 ---")
+    print(f"  {report.purchase_proposal.summary}")
     print(f"\n  --- 库存智能体 ---")
     print(f"  {report.inventory_proposal.summary}")
     print(f"\n  --- 物流智能体 ---")
@@ -489,10 +494,10 @@ def main():
     print_section("Step 4: 端到端验证 / End-to-End Verification")
     plan = report.integrated_plan
 
-    # 验收标准 1：实现3个领域智能体
-    agent_count = 3
-    ok1 = agent_count >= 3
-    print(f"  [AccCheck1] 领域智能体数量: {agent_count}/3 [{'PASS' if ok1 else 'FAIL'}]")
+    # 验收标准 1：实现4个领域智能体（采购/库存/物流/需求）
+    agent_count = 4
+    ok1 = agent_count >= 4
+    print(f"  [AccCheck1] 领域智能体数量: {agent_count}/4 [{'PASS' if ok1 else 'FAIL'}]")
 
     # 验收标准 2：多智能体协同生成不冲突方案
     conflict_cnt = len(plan.conflicts)
@@ -522,6 +527,12 @@ def main():
         "phase": 6,
         "description": "多智能体协同与系统集成 Multi-Agent Coordination and System Integration",
         "agents": {
+            "purchase_agent": {
+                "name": report.purchase_proposal.agent_name,
+                "actions_count": len(report.purchase_proposal.actions),
+                "total_risk_reduction": report.purchase_proposal.total_risk_reduction,
+                "summary": report.purchase_proposal.summary,
+            },
             "inventory_agent": {
                 "name": report.inventory_proposal.agent_name,
                 "actions_count": len(report.inventory_proposal.actions),
@@ -578,7 +589,7 @@ def main():
                   "F6-3_pipeline_flowchart", "F6-4_risk_before_after"]:
         print(f"    outputs/figures/{fname}.{{pdf,png}}")
     print(f"\n  验收状态:")
-    print(f"    领域智能体 >= 3: PASS")
+    print(f"    领域智能体 >= 4: {'PASS' if ok1 else 'FAIL'}")
     print(f"    冲突均已消解: {'PASS' if resolved else 'FAIL'}")
     print(f"    端到端风险评分下降: {'PASS' if risk_down else 'FAIL'}")
     print(f"\n  整体综合风险降低: {report.overall_risk_reduction:.1%}")

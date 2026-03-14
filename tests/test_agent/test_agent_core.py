@@ -73,7 +73,8 @@ def test_multi_agent_system_reduces_risk():
         budget_limit=2.5,
     )
 
-    assert len(report.messages) == 4
+    assert len(report.messages) == 5
+    assert len(report.purchase_proposal.actions) >= 1
     assert len(report.integrated_plan.integrated_actions) >= 1
     assert report.overall_risk_reduction > 0
     assert report.post_disposal_risk_scores["T3-SI"] <= report.pre_disposal_risk_scores["T3-SI"]
