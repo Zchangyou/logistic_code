@@ -1,0 +1,127 @@
+[
+  {
+    "id": "EVT001",
+    "title": "2021年全球芯片短缺事件",
+    "title_en": "2021 Global Chip Shortage",
+    "category": "material_shortage",
+    "risk_type": "材料短缺",
+    "affected_nodes": ["芯片晶圆供应商", "ECU控制单元", "传感器模组", "电子电气系统"],
+    "trigger": "台积电、三星等晶圆代工厂产能紧张，叠加新冠疫情导致的需求激增（居家电子设备、汽车电子等）",
+    "propagation_path": "芯片晶圆短缺 → ECU/传感器无法生产 → 整车装配线停产 → 交付延迟",
+    "impact_duration_months": 24,
+    "impact_severity": 0.9,
+    "resolution_measures": [
+      "汽车厂商与晶圆厂直签长期采购协议，锁定产能",
+      "提高芯片安全库存至6个月以上",
+      "推进芯片设计国产替代，引入第二供应商",
+      "与国内芯片企业（如中芯国际）建立战略合作",
+      "对非关键功能降配，减少芯片用量"
+    ],
+    "effectiveness_score": 0.75,
+    "keywords": ["芯片", "晶圆", "半导体", "ECU", "电子", "短缺", "台积电", "供应商集中"]
+  },
+  {
+    "id": "EVT002",
+    "title": "2020年新冠疫情全球供应链中断",
+    "title_en": "2020 COVID-19 Supply Chain Disruption",
+    "category": "logistics_disruption",
+    "risk_type": "物流中断",
+    "affected_nodes": ["跨区域物流", "港口清关", "跨境零部件供应"],
+    "trigger": "新冠疫情封控导致工厂停工、港口拥堵、航运运力骤减、跨境物流成本飙升",
+    "propagation_path": "物流中断 → 原材料入库延迟 → 在途库存积压 → 生产计划打乱 → 整体交付延期",
+    "impact_duration_months": 18,
+    "impact_severity": 0.85,
+    "resolution_measures": [
+      "建立区域化供应链，减少跨境依赖",
+      "提高关键零部件在岸库存（安全库存增至90天）",
+      "与多家物流服务商签约，分散物流风险",
+      "启用空运紧急补货通道（成本较高但速度快）",
+      "推行供应商本地化战略，优先选择同省/同区域供应商"
+    ],
+    "effectiveness_score": 0.70,
+    "keywords": ["物流", "运输", "疫情", "封控", "港口", "跨区域", "中断", "停工"]
+  },
+  {
+    "id": "EVT003",
+    "title": "中国稀土出口管制与供应集中风险",
+    "title_en": "China Rare Earth Supply Concentration Risk",
+    "category": "supplier_concentration",
+    "risk_type": "供应商集中",
+    "affected_nodes": ["稀土材料供应商", "传感器模组", "电机永磁体"],
+    "trigger": "全球稀土储量高度集中于中国（约60%），单一供应商导致极高集中度风险；贸易摩擦时期曾出现出口限制预警",
+    "propagation_path": "稀土供应收紧 → 稀土材料价格暴涨/断供 → 传感器/电机永磁体生产受阻 → 新能源/电子产品供应链紊乱",
+    "impact_duration_months": 36,
+    "impact_severity": 0.80,
+    "resolution_measures": [
+      "与多个稀土供应商签订长期框架协议，锁定价格与用量",
+      "建立稀土战略储备（至少6个月用量）",
+      "研发减少稀土用量的替代技术路线",
+      "开发澳大利亚、美国等境外稀土供应来源",
+      "推进稀土回收再利用项目"
+    ],
+    "effectiveness_score": 0.65,
+    "keywords": ["稀土", "供应商集中", "包头", "出口限制", "单一供应", "传感器", "电机"]
+  },
+  {
+    "id": "EVT004",
+    "title": "日本东北地震导致汽车零部件供应中断（2011）",
+    "title_en": "2011 Japan Earthquake Supply Disruption",
+    "category": "regional_disruption",
+    "risk_type": "区域中断",
+    "affected_nodes": ["特种零部件供应商", "精密化工材料"],
+    "trigger": "日本宫城地震+海啸，导致众多汽车零部件厂（如小岛化学、旭化成）停工，全球汽车减产约150万辆",
+    "propagation_path": "区域灾害 → 多家供应商同时停工 → 关键零部件断供 → 全球整车厂被迫减产",
+    "impact_duration_months": 6,
+    "impact_severity": 0.85,
+    "resolution_measures": [
+      "对关键零部件实施双/多供应来源策略",
+      "供应商地理分散化，避免同一区域集中",
+      "建立BCP（业务连续性计划），要求一级供应商提供灾备方案",
+      "增加关键零部件库存缓冲（2-3个月）",
+      "与同行业共享零部件供应，应急互换"
+    ],
+    "effectiveness_score": 0.80,
+    "keywords": ["地震", "区域灾害", "日本", "多点中断", "级联", "零部件", "供应中断"]
+  },
+  {
+    "id": "EVT005",
+    "title": "汽车行业牛鞭效应与需求波动管理",
+    "title_en": "Bullwhip Effect and Demand Volatility in Automotive",
+    "category": "demand_shock",
+    "risk_type": "需求波动",
+    "affected_nodes": ["总装厂", "零部件供应商", "原材料供应商"],
+    "trigger": "总装厂订单激增（如新能源汽车爆发期），需求信号逐层放大，导致上游供应商超量备货，后因需求回落产生库存积压",
+    "propagation_path": "终端需求激增 → 整车厂超量下单 → T1/T2超量采购 → 原材料大量囤积 → 需求回落后全链路库存过剩",
+    "impact_duration_months": 8,
+    "impact_severity": 0.60,
+    "resolution_measures": [
+      "建立供应链信息共享平台，向上游透明传递真实销售数据",
+      "采用VMI（供应商管理库存）模式，减少信息失真",
+      "推行S&OP（销售与运营计划）月度协同会议",
+      "引入需求预测模型，提高预测准确率",
+      "实施订单批量平滑策略，减少订单波动幅度"
+    ],
+    "effectiveness_score": 0.72,
+    "keywords": ["需求波动", "牛鞭效应", "订单", "总装厂", "库存", "需求骤增", "信息共享"]
+  },
+  {
+    "id": "EVT006",
+    "title": "铜材价格暴涨与关键金属供应风险",
+    "title_en": "Copper Price Surge and Critical Metal Supply Risk",
+    "category": "material_shortage",
+    "risk_type": "材料短缺",
+    "affected_nodes": ["铜材供应商", "线束总成", "传感器模组"],
+    "trigger": "2021-2022年铜价大幅上涨（LME铜价从5000美元/吨涨至10000美元/吨），受需求激增和矿山产量不足双重驱动",
+    "propagation_path": "铜价上涨 → 线束/传感器制造成本大幅上升 → 供应商产能调整 → 交期延长",
+    "impact_duration_months": 18,
+    "impact_severity": 0.55,
+    "resolution_measures": [
+      "签订铜材远期合约，锁定价格",
+      "增加铜材安全库存",
+      "研究铝线束替代方案（铝比铜轻且便宜）",
+      "与供应商建立成本联动机制，分担价格风险"
+    ],
+    "effectiveness_score": 0.68,
+    "keywords": ["铜材", "金属", "价格上涨", "线束", "传感器", "成本", "短缺"]
+  }
+]

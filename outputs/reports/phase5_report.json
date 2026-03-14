@@ -1,0 +1,354 @@
+{
+  "phase": 5,
+  "description": "AI智能体核心能力 AI Agent Core Capabilities",
+  "knowledge_base": {
+    "events_loaded": 6,
+    "strategies_loaded": 8,
+    "retrieval_method": "TF-IDF (char n-gram)"
+  },
+  "diagnosis": {
+    "S1_chip_shortage": {
+      "scenario": "芯片晶圆停供场景（T3-SI断供）",
+      "generated_by": "llm",
+      "confidence": 0.85,
+      "primary_bottleneck": {
+        "node_id": "T3-SI",
+        "node_name": "芯片晶圆供应商（T3-SI）  \n**瓶颈类型**：材料短缺  \n**根本原因分析**：芯片晶圆供应商面临产能紧张，且受全球半导体行业周期性波动影响，导致供应能力不足。同时，新冠疫情后需求激增进一步加剧了供需失衡，使得该节点成为关键瓶颈。  \n**影响传播路径**：芯片晶圆停供 → ECU控制单元无法生产 → 发动机控制系统缺失 → 整车装配线停滞 → 交付延迟  \n**影响范围**：ECU控制单元（T2-ECU）、发动机总成、整车装配线、客户交付  \n**严重程度**：严重  \n**关联历史事件**：2021年全球芯片短缺事件、日本东北地震导致汽车零部件供应中断  \n**处置建议**：  \n1. 与芯片晶圆供应商签订长期采购协议，锁定产能并建立应急响应机制。  \n2. 引入第二或第三供应商，实现供应链多元化，降低对单一供应商的依赖。  \n3. 提高芯片安全库存至6个月以上，并推动芯片设计国产化替代方案。  \n**诊断置信度**：0.85",
+        "risk_score": 0.5839,
+        "risk_level": "medium",
+        "bottleneck_type": "材料短缺  \n**根本原因分析**：芯片晶圆供应商面临产能紧张，且受全球半导体行业周期性波动影响，导致供应能力不足。同时，新冠疫情后需求激增进一步加剧了供需失衡，使得该节点成为关键瓶颈。  \n**影响传播路径**：芯片晶圆停供 → ECU控制单元无法生产 → 发动机控制系统缺失 → 整车装配线停滞 → 交付延迟  \n**影响范围**：ECU控制单元（T2-ECU）、发动机总成、整车装配线、客户交付  \n**严重程度**：严重  \n**关联历史事件**：2021年全球芯片短缺事件、日本东北地震导致汽车零部件供应中断  \n**处置建议**：  \n1. 与芯片晶圆供应商签订长期采购协议，锁定产能并建立应急响应机制。  \n2. 引入第二或第三供应商，实现供应链多元化，降低对单一供应商的依赖。  \n3. 提高芯片安全库存至6个月以上，并推动芯片设计国产化替代方案。  \n**诊断置信度**：0.85",
+        "root_cause": "芯片晶圆供应商面临产能紧张，且受全球半导体行业周期性波动影响，导致供应能力不足。同时，新冠疫情后需求激增进一步加剧了供需失衡，使得该节点成为关键瓶颈。",
+        "impact_scope": [
+          "T2-ECU（ECU控制单元）",
+          "T1-E（电子电气系统集成商）",
+          "OEM（总装厂）",
+          "最终整车交付"
+        ],
+        "severity": "严重  \n**关联历史事件**：2021年全球芯片短缺事件、日本东北地震导致汽车零部件供应中断  \n**处置建议**：  \n1. 与芯片晶圆供应商签订长期采购协议，锁定产能并建立应急响应机制。  \n2. 引入第二或第三供应商，实现供应链多元化，降低对单一供应商的依赖。  \n3. 提高芯片安全库存至6个月以上，并推动芯片设计国产化替代方案。  \n**诊断置信度**：0.85"
+      },
+      "secondary_bottlenecks": [
+        {
+          "node_id": "T3-RE",
+          "node_name": "稀土材料供应商",
+          "risk_score": 0.5989,
+          "bottleneck_type": "供应商集中",
+          "severity": "中等"
+        },
+        {
+          "node_id": "T2-ECU",
+          "node_name": "ECU控制单元",
+          "risk_score": 0.5822,
+          "bottleneck_type": "级联短缺",
+          "severity": "中等"
+        }
+      ],
+      "propagation_path": "芯片晶圆停供 → ECU控制单元无法生产 → 发动机控制系统缺失 → 整车装配线停滞 → 交付延迟",
+      "related_events": [
+        "EVT001",
+        "EVT004",
+        "EVT003"
+      ],
+      "recommendations": [
+        "与芯片晶圆供应商签订长期采购协议，锁定产能并建立应急响应机制。  ",
+        "引入第二或第三供应商，实现供应链多元化，降低对单一供应商的依赖。  ",
+        "提高芯片安全库存至6个月以上，并推动芯片设计国产化替代方案。  ",
+        "85"
+      ]
+    },
+    "S2_rare_earth": {
+      "scenario": "稀土材料集中风险场景（T3-RE产能下降50%）",
+      "generated_by": "llm",
+      "confidence": 0.85,
+      "primary_bottleneck": {
+        "node_id": "T3-RE",
+        "node_name": "稀土材料供应商（T3-RE）  \n**瓶颈类型**：供应商集中  \n**根本原因分析**：全球稀土资源高度集中于中国，单一供应商导致供应风险极高；在贸易摩擦或政策调整下，可能出现出口限制或断供情况。  \n**影响传播路径**：稀土供应收紧 → 稀土材料价格暴涨/断供 → 永磁体生产受阻 → 传感器/电机性能下降 → 新能源汽车总装线受影响  \n**影响范围**：新能源汽车总装厂、电机控制器、传感器模块、永磁体供应商  \n**严重程度**：严重  \n**关联历史事件**：中国稀土出口管制与供应集中风险、2021年全球芯片短缺事件  \n**处置建议**：  \n1. 多元化稀土供应商布局，避免过度依赖单一地区或企业。  \n2. 建立稀土战略储备，确保关键时期供应链稳定。  \n3. 推进替代技术研究，如开发低稀土或无稀土永磁体材料。  \n**诊断置信度**：0.85",
+        "risk_score": 0.5989,
+        "risk_level": "medium",
+        "bottleneck_type": "供应商集中  \n**根本原因分析**：全球稀土资源高度集中于中国，单一供应商导致供应风险极高；在贸易摩擦或政策调整下，可能出现出口限制或断供情况。  \n**影响传播路径**：稀土供应收紧 → 稀土材料价格暴涨/断供 → 永磁体生产受阻 → 传感器/电机性能下降 → 新能源汽车总装线受影响  \n**影响范围**：新能源汽车总装厂、电机控制器、传感器模块、永磁体供应商  \n**严重程度**：严重  \n**关联历史事件**：中国稀土出口管制与供应集中风险、2021年全球芯片短缺事件  \n**处置建议**：  \n1. 多元化稀土供应商布局，避免过度依赖单一地区或企业。  \n2. 建立稀土战略储备，确保关键时期供应链稳定。  \n3. 推进替代技术研究，如开发低稀土或无稀土永磁体材料。  \n**诊断置信度**：0.85",
+        "root_cause": "全球稀土资源高度集中于中国，单一供应商导致供应风险极高；在贸易摩擦或政策调整下，可能出现出口限制或断供情况。",
+        "impact_scope": [
+          "T2-SN（传感器模组）",
+          "T2-ECU（ECU控制单元）",
+          "T1-E（电子电气系统集成商）",
+          "OEM（总装厂）"
+        ],
+        "severity": "严重  \n**关联历史事件**：中国稀土出口管制与供应集中风险、2021年全球芯片短缺事件  \n**处置建议**：  \n1. 多元化稀土供应商布局，避免过度依赖单一地区或企业。  \n2. 建立稀土战略储备，确保关键时期供应链稳定。  \n3. 推进替代技术研究，如开发低稀土或无稀土永磁体材料。  \n**诊断置信度**：0.85"
+      },
+      "secondary_bottlenecks": [
+        {
+          "node_id": "T3-SI",
+          "node_name": "芯片晶圆供应商",
+          "risk_score": 0.5839,
+          "bottleneck_type": "材料短缺",
+          "severity": "中等"
+        },
+        {
+          "node_id": "T2-ECU",
+          "node_name": "ECU控制单元",
+          "risk_score": 0.5822,
+          "bottleneck_type": "级联短缺",
+          "severity": "中等"
+        }
+      ],
+      "propagation_path": "稀土供应收紧 → 稀土材料价格暴涨/断供 → 永磁体生产受阻 → 传感器/电机性能下降 → 新能源汽车总装线受影响",
+      "related_events": [
+        "EVT003",
+        "EVT001",
+        "EVT006"
+      ],
+      "recommendations": [
+        "多元化稀土供应商布局，避免过度依赖单一地区或企业。  ",
+        "建立稀土战略储备，确保关键时期供应链稳定。  ",
+        "推进替代技术研究，如开发低稀土或无稀土永磁体材料。  ",
+        "85"
+      ]
+    }
+  },
+  "early_warning": {
+    "total_warnings": 318,
+    "events_by_level": {
+      "关注": 151,
+      "警告": 83,
+      "严重": 84
+    },
+    "critical_nodes": [
+      "T2-E2",
+      "T2-T1",
+      "T3-CF",
+      "T3-NI",
+      "T3-RB",
+      "T3-SI",
+      "T3-PCB",
+      "T3-GL",
+      "T3-RE",
+      "T2-ECU",
+      "T3-PL",
+      "T3-ST",
+      "T3-MG",
+      "T3-AL"
+    ],
+    "first_warning_period": {
+      "OEM": 1,
+      "T1-C": 4,
+      "T1-E": 1,
+      "T1-P": 3,
+      "T2-B1": 1,
+      "T2-E1": 1,
+      "T2-E2": 1,
+      "T2-ECU": 1,
+      "T2-H1": 1,
+      "T2-S1": 1,
+      "T2-SN": 1,
+      "T2-T1": 1,
+      "T2-W1": 1,
+      "T3-AL": 1,
+      "T3-CF": 1,
+      "T3-CU": 1,
+      "T3-GL": 1,
+      "T3-MG": 1,
+      "T3-NI": 1,
+      "T3-PCB": 1,
+      "T3-PL": 1,
+      "T3-RB": 1,
+      "T3-RE": 1,
+      "T3-SI": 1,
+      "T3-ST": 1
+    },
+    "summary": "共检测到 318 条预警事件，其中严重 84 条、警告 83 条、关注 151 条。关键高风险节点：T2-E2, T2-T1, T3-CF, T3-NI, T3-RB。"
+  },
+  "strategy_plans": [
+    {
+      "target_node_id": "T3-RE",
+      "target_node_name": "稀土材料供应商",
+      "current_risk_score": 0.5989,
+      "risk_type": "供应商集中",
+      "combined_risk_reduction": 0.7312,
+      "expected_risk_after_combo": 0.161,
+      "cost_estimate": "中",
+      "rationale": "针对稀土材料供应商（风险评分 0.599）的供应商集中，推荐优先实施《战略储备与长协锁量》（可行性 0.74），组合前两项策略预期可将风险降至 0.161，降低幅度 73.1%。",
+      "strategies": [
+        {
+          "strategy_id": "STR005",
+          "name": "战略储备与长协锁量",
+          "risk_reduction": 0.55,
+          "feasibility_score": 0.736,
+          "priority_score": 0.4644,
+          "lead_time_days": 60,
+          "cost_level": 3,
+          "expected_risk_after": 0.3565,
+          "description": "与供应商签订长期框架协议，锁定关键物料供应量和价格；同时建立战略性原材料储备库（如稀土、芯片晶圆）。"
+        },
+        {
+          "strategy_id": "STR001",
+          "name": "引入第二供应商",
+          "risk_reduction": 0.65,
+          "feasibility_score": 0.644,
+          "priority_score": 0.4132,
+          "lead_time_days": 180,
+          "cost_level": 3,
+          "expected_risk_after": 0.3482,
+          "description": "为关键物料开发备选供应商，打破单一供应依赖。实施步骤：供应商评估→资质认证→小批量试供→逐步扩大采购比例。"
+        },
+        {
+          "strategy_id": "STR007",
+          "name": "供应商能力提升与技术援助",
+          "risk_reduction": 0.35,
+          "feasibility_score": 0.552,
+          "priority_score": 0.2948,
+          "lead_time_days": 270,
+          "cost_level": 3,
+          "expected_risk_after": 0.4832,
+          "description": "向关键供应商提供资金、技术或管理支持，帮助其扩大产能、提升质量稳定性，从根本上解决供应瓶颈。"
+        }
+      ]
+    },
+    {
+      "target_node_id": "T3-SI",
+      "target_node_name": "芯片晶圆供应商",
+      "current_risk_score": 0.5839,
+      "risk_type": "材料短缺",
+      "combined_risk_reduction": 0.6416,
+      "expected_risk_after_combo": 0.2093,
+      "cost_estimate": "中",
+      "rationale": "针对芯片晶圆供应商（风险评分 0.584）的材料短缺，推荐优先实施《增加安全库存》（可行性 0.82），组合前两项策略预期可将风险降至 0.209，降低幅度 64.2%。",
+      "strategies": [
+        {
+          "strategy_id": "STR002",
+          "name": "增加安全库存",
+          "risk_reduction": 0.45,
+          "feasibility_score": 0.816,
+          "priority_score": 0.4767,
+          "lead_time_days": 30,
+          "cost_level": 2,
+          "expected_risk_after": 0.3695,
+          "description": "提高关键物料的安全库存水平（目标：覆盖60-90天需求），在风险发生时提供缓冲时间。"
+        },
+        {
+          "strategy_id": "STR005",
+          "name": "战略储备与长协锁量",
+          "risk_reduction": 0.55,
+          "feasibility_score": 0.736,
+          "priority_score": 0.4608,
+          "lead_time_days": 60,
+          "cost_level": 3,
+          "expected_risk_after": 0.3475,
+          "description": "与供应商签订长期框架协议，锁定关键物料供应量和价格；同时建立战略性原材料储备库（如稀土、芯片晶圆）。"
+        },
+        {
+          "strategy_id": "STR001",
+          "name": "引入第二供应商",
+          "risk_reduction": 0.65,
+          "feasibility_score": 0.644,
+          "priority_score": 0.4094,
+          "lead_time_days": 180,
+          "cost_level": 3,
+          "expected_risk_after": 0.3395,
+          "description": "为关键物料开发备选供应商，打破单一供应依赖。实施步骤：供应商评估→资质认证→小批量试供→逐步扩大采购比例。"
+        },
+        {
+          "strategy_id": "STR007",
+          "name": "供应商能力提升与技术援助",
+          "risk_reduction": 0.35,
+          "feasibility_score": 0.552,
+          "priority_score": 0.293,
+          "lead_time_days": 270,
+          "cost_level": 3,
+          "expected_risk_after": 0.4711,
+          "description": "向关键供应商提供资金、技术或管理支持，帮助其扩大产能、提升质量稳定性，从根本上解决供应瓶颈。"
+        }
+      ]
+    },
+    {
+      "target_node_id": "T2-ECU",
+      "target_node_name": "ECU控制单元",
+      "current_risk_score": 0.5822,
+      "risk_type": "材料短缺",
+      "combined_risk_reduction": 0.6416,
+      "expected_risk_after_combo": 0.2087,
+      "cost_estimate": "中",
+      "rationale": "针对ECU控制单元（风险评分 0.582）的材料短缺，推荐优先实施《增加安全库存》（可行性 0.82），组合前两项策略预期可将风险降至 0.209，降低幅度 64.2%。",
+      "strategies": [
+        {
+          "strategy_id": "STR002",
+          "name": "增加安全库存",
+          "risk_reduction": 0.45,
+          "feasibility_score": 0.816,
+          "priority_score": 0.4763,
+          "lead_time_days": 30,
+          "cost_level": 2,
+          "expected_risk_after": 0.3684,
+          "description": "提高关键物料的安全库存水平（目标：覆盖60-90天需求），在风险发生时提供缓冲时间。"
+        },
+        {
+          "strategy_id": "STR005",
+          "name": "战略储备与长协锁量",
+          "risk_reduction": 0.55,
+          "feasibility_score": 0.589,
+          "priority_score": 0.4027,
+          "lead_time_days": 60,
+          "cost_level": 3,
+          "expected_risk_after": 0.3936,
+          "description": "与供应商签订长期框架协议，锁定关键物料供应量和价格；同时建立战略性原材料储备库（如稀土、芯片晶圆）。"
+        },
+        {
+          "strategy_id": "STR001",
+          "name": "引入第二供应商",
+          "risk_reduction": 0.65,
+          "feasibility_score": 0.515,
+          "priority_score": 0.3539,
+          "lead_time_days": 180,
+          "cost_level": 3,
+          "expected_risk_after": 0.3873,
+          "description": "为关键物料开发备选供应商，打破单一供应依赖。实施步骤：供应商评估→资质认证→小批量试供→逐步扩大采购比例。"
+        },
+        {
+          "strategy_id": "STR007",
+          "name": "供应商能力提升与技术援助",
+          "risk_reduction": 0.35,
+          "feasibility_score": 0.442,
+          "priority_score": 0.2574,
+          "lead_time_days": 270,
+          "cost_level": 3,
+          "expected_risk_after": 0.4921,
+          "description": "向关键供应商提供资金、技术或管理支持，帮助其扩大产能、提升质量稳定性，从根本上解决供应瓶颈。"
+        }
+      ]
+    }
+  ],
+  "node_risk_trend_sample": {
+    "T3-SI": [
+      0.7443466666666667,
+      0.7367533333333334,
+      0.7389311111111111,
+      0.7306844444444445,
+      0.7508088888888889,
+      0.7243988888888889
+    ],
+    "T3-RE": [
+      0.7029233333333333,
+      0.7198966666666666,
+      0.6659900000000001,
+      0.7194677777777778,
+      0.7052066666666665,
+      0.7214422222222222
+    ],
+    "T2-ECU": [
+      0.5276711111111112,
+      0.5368133333333333,
+      0.5925199999999999,
+      0.6131255555555555,
+      0.6470522222222221,
+      0.6736988888888888
+    ]
+  },
+  "figures_produced": [
+    "F5-1_risk_trend",
+    "F5-2_strategy_comparison"
+  ],
+  "verification": {
+    "kb_retrieval": "✓ 知识库检索正常，芯片短缺事件可被检索",
+    "rag_diagnosis": "✓ 正确定位芯片供应瓶颈，关联到EVT001历史事件",
+    "early_warning": "✓ 预警系统在关键节点触发分级预警",
+    "strategy_match": "✓ 推荐策略与风险类型匹配，可行性评分合理"
+  }
+}

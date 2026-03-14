@@ -1,0 +1,287 @@
+{
+  "nodes": {
+    "OEM": {
+      "in_degree_centrality": 0.125,
+      "out_degree_centrality": 0.125,
+      "degree_centrality": 0.125,
+      "betweenness_centrality": 0.17029,
+      "clustering_coefficient": 0,
+      "pagerank": 0.208445,
+      "tier": 0,
+      "name": "整车总装厂",
+      "name_en": "Auto Assembly Plant"
+    },
+    "T1-P": {
+      "in_degree_centrality": 0.166667,
+      "out_degree_centrality": 0.125,
+      "degree_centrality": 0.166667,
+      "betweenness_centrality": 0.115942,
+      "clustering_coefficient": 0,
+      "pagerank": 0.174553,
+      "tier": 1,
+      "name": "动力总成系统集成商",
+      "name_en": "Powertrain Integrator"
+    },
+    "T1-C": {
+      "in_degree_centrality": 0.166667,
+      "out_degree_centrality": 0.041667,
+      "degree_centrality": 0.166667,
+      "betweenness_centrality": 0.072464,
+      "clustering_coefficient": 0,
+      "pagerank": 0.098424,
+      "tier": 1,
+      "name": "底盘系统集成商",
+      "name_en": "Chassis Integrator"
+    },
+    "T1-E": {
+      "in_degree_centrality": 0.166667,
+      "out_degree_centrality": 0.083333,
+      "degree_centrality": 0.166667,
+      "betweenness_centrality": 0.112319,
+      "clustering_coefficient": 0,
+      "pagerank": 0.163137,
+      "tier": 1,
+      "name": "电子电气系统集成商",
+      "name_en": "E/E System Integrator"
+    },
+    "T2-E1": {
+      "in_degree_centrality": 0.125,
+      "out_degree_centrality": 0.041667,
+      "degree_centrality": 0.125,
+      "betweenness_centrality": 0.01087,
+      "clustering_coefficient": 0,
+      "pagerank": 0.059705,
+      "tier": 2,
+      "name": "发动机缸体",
+      "name_en": "Engine Block"
+    },
+    "T2-E2": {
+      "in_degree_centrality": 0.083333,
+      "out_degree_centrality": 0.041667,
+      "degree_centrality": 0.083333,
+      "betweenness_centrality": 0.01087,
+      "clustering_coefficient": 0,
+      "pagerank": 0.060555,
+      "tier": 2,
+      "name": "涡轮增压器",
+      "name_en": "Turbocharger"
+    },
+    "T2-T1": {
+      "in_degree_centrality": 0.041667,
+      "out_degree_centrality": 0.041667,
+      "degree_centrality": 0.083333,
+      "betweenness_centrality": 0.005435,
+      "clustering_coefficient": 0,
+      "pagerank": 0.00855,
+      "tier": 2,
+      "name": "变速箱总成",
+      "name_en": "Transmission Assembly"
+    },
+    "T2-B1": {
+      "in_degree_centrality": 0.083333,
+      "out_degree_centrality": 0.041667,
+      "degree_centrality": 0.125,
+      "betweenness_centrality": 0.009058,
+      "clustering_coefficient": 0,
+      "pagerank": 0.01025,
+      "tier": 2,
+      "name": "制动系统",
+      "name_en": "Brake System"
+    },
+    "T2-S1": {
+      "in_degree_centrality": 0.125,
+      "out_degree_centrality": 0.041667,
+      "degree_centrality": 0.166667,
+      "betweenness_centrality": 0.021739,
+      "clustering_coefficient": 0,
+      "pagerank": 0.01535,
+      "tier": 2,
+      "name": "悬挂系统",
+      "name_en": "Suspension System"
+    },
+    "T2-W1": {
+      "in_degree_centrality": 0.083333,
+      "out_degree_centrality": 0.041667,
+      "degree_centrality": 0.125,
+      "betweenness_centrality": 0.018116,
+      "clustering_coefficient": 0,
+      "pagerank": 0.01365,
+      "tier": 2,
+      "name": "转向器",
+      "name_en": "Steering System"
+    },
+    "T2-ECU": {
+      "in_degree_centrality": 0.166667,
+      "out_degree_centrality": 0.041667,
+      "degree_centrality": 0.166667,
+      "betweenness_centrality": 0.021739,
+      "clustering_coefficient": 0,
+      "pagerank": 0.085532,
+      "tier": 2,
+      "name": "ECU控制单元",
+      "name_en": "ECU Control Unit"
+    },
+    "T2-H1": {
+      "in_degree_centrality": 0.083333,
+      "out_degree_centrality": 0.041667,
+      "degree_centrality": 0.125,
+      "betweenness_centrality": 0.013587,
+      "clustering_coefficient": 0,
+      "pagerank": 0.0111,
+      "tier": 2,
+      "name": "线束总成",
+      "name_en": "Wire Harness"
+    },
+    "T2-SN": {
+      "in_degree_centrality": 0.166667,
+      "out_degree_centrality": 0.041667,
+      "degree_centrality": 0.208333,
+      "betweenness_centrality": 0.029891,
+      "clustering_coefficient": 0,
+      "pagerank": 0.01875,
+      "tier": 2,
+      "name": "传感器模组",
+      "name_en": "Sensor Module"
+    },
+    "T3-AL": {
+      "in_degree_centrality": 0.0,
+      "out_degree_centrality": 0.083333,
+      "degree_centrality": 0.083333,
+      "betweenness_centrality": 0.0,
+      "clustering_coefficient": 0,
+      "pagerank": 0.006,
+      "tier": 3,
+      "name": "铸造铝合金",
+      "name_en": "Cast Aluminum Alloy"
+    },
+    "T3-ST": {
+      "in_degree_centrality": 0.0,
+      "out_degree_centrality": 0.125,
+      "degree_centrality": 0.125,
+      "betweenness_centrality": 0.0,
+      "clustering_coefficient": 0,
+      "pagerank": 0.006,
+      "tier": 3,
+      "name": "特种钢材",
+      "name_en": "Special Steel"
+    },
+    "T3-NI": {
+      "in_degree_centrality": 0.0,
+      "out_degree_centrality": 0.041667,
+      "degree_centrality": 0.041667,
+      "betweenness_centrality": 0.0,
+      "clustering_coefficient": 0,
+      "pagerank": 0.006,
+      "tier": 3,
+      "name": "镍基合金",
+      "name_en": "Nickel Alloy"
+    },
+    "T3-RB": {
+      "in_degree_centrality": 0.0,
+      "out_degree_centrality": 0.083333,
+      "degree_centrality": 0.083333,
+      "betweenness_centrality": 0.0,
+      "clustering_coefficient": 0,
+      "pagerank": 0.006,
+      "tier": 3,
+      "name": "合成橡胶",
+      "name_en": "Synthetic Rubber"
+    },
+    "T3-CU": {
+      "in_degree_centrality": 0.0,
+      "out_degree_centrality": 0.083333,
+      "degree_centrality": 0.083333,
+      "betweenness_centrality": 0.0,
+      "clustering_coefficient": 0,
+      "pagerank": 0.006,
+      "tier": 3,
+      "name": "铜材",
+      "name_en": "Copper"
+    },
+    "T3-RE": {
+      "in_degree_centrality": 0.0,
+      "out_degree_centrality": 0.083333,
+      "degree_centrality": 0.083333,
+      "betweenness_centrality": 0.0,
+      "clustering_coefficient": 0,
+      "pagerank": 0.006,
+      "tier": 3,
+      "name": "稀土材料",
+      "name_en": "Rare Earth Material"
+    },
+    "T3-SI": {
+      "in_degree_centrality": 0.0,
+      "out_degree_centrality": 0.041667,
+      "degree_centrality": 0.041667,
+      "betweenness_centrality": 0.0,
+      "clustering_coefficient": 0,
+      "pagerank": 0.006,
+      "tier": 3,
+      "name": "芯片晶圆",
+      "name_en": "Chip Wafer"
+    },
+    "T3-PCB": {
+      "in_degree_centrality": 0.0,
+      "out_degree_centrality": 0.083333,
+      "degree_centrality": 0.083333,
+      "betweenness_centrality": 0.0,
+      "clustering_coefficient": 0,
+      "pagerank": 0.006,
+      "tier": 3,
+      "name": "印制电路板",
+      "name_en": "PCB"
+    },
+    "T3-PL": {
+      "in_degree_centrality": 0.0,
+      "out_degree_centrality": 0.083333,
+      "degree_centrality": 0.083333,
+      "betweenness_centrality": 0.0,
+      "clustering_coefficient": 0,
+      "pagerank": 0.006,
+      "tier": 3,
+      "name": "工程塑料",
+      "name_en": "Engineering Plastic"
+    },
+    "T3-CF": {
+      "in_degree_centrality": 0.0,
+      "out_degree_centrality": 0.041667,
+      "degree_centrality": 0.041667,
+      "betweenness_centrality": 0.0,
+      "clustering_coefficient": 0,
+      "pagerank": 0.006,
+      "tier": 3,
+      "name": "碳纤维材料",
+      "name_en": "Carbon Fiber"
+    },
+    "T3-MG": {
+      "in_degree_centrality": 0.0,
+      "out_degree_centrality": 0.041667,
+      "degree_centrality": 0.041667,
+      "betweenness_centrality": 0.0,
+      "clustering_coefficient": 0,
+      "pagerank": 0.006,
+      "tier": 3,
+      "name": "镁合金",
+      "name_en": "Magnesium Alloy"
+    },
+    "T3-GL": {
+      "in_degree_centrality": 0.0,
+      "out_degree_centrality": 0.041667,
+      "degree_centrality": 0.041667,
+      "betweenness_centrality": 0.0,
+      "clustering_coefficient": 0,
+      "pagerank": 0.006,
+      "tier": 3,
+      "name": "特种玻璃",
+      "name_en": "Special Glass"
+    }
+  },
+  "network": {
+    "network_diameter": 6,
+    "avg_path_length": 3.5733,
+    "node_count": 25,
+    "edge_count": 38,
+    "density": 0.063333,
+    "largest_wcc_size": 25
+  }
+}

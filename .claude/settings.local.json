@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd:*)",
+      "Bash(conda run:*)",
+      "Read(//h/Anaconda/conda_env/logistic/**)",
+      "Read(//c/Users/Lenovo/.conda/envs/logistic/**)",
+      "Read(//h/Anaconda/conda_env/**)",
+      "Bash(python:*)",
+      "Bash(pip show:*)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)"
+    ]
+  }
+}

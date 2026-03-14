@@ -1,0 +1,271 @@
+{
+  "phase": 4,
+  "description": "风险传播与综合评估 Risk Propagation and Comprehensive Assessment",
+  "sir_scenarios": {
+    "S1": {
+      "scenario_name": "芯片晶圆停供",
+      "scenario_name_en": "Chip Wafer Shortage",
+      "impact_range": 6,
+      "impact_depth": 4,
+      "impact_duration": 31,
+      "recovery_time": 30,
+      "final_affected": 8
+    },
+    "S2": {
+      "scenario_name": "稀土材料集中",
+      "scenario_name_en": "Rare Earth Concentration",
+      "impact_range": 7,
+      "impact_depth": 4,
+      "impact_duration": 31,
+      "recovery_time": 30,
+      "final_affected": 9
+    },
+    "S3": {
+      "scenario_name": "华东区域中断",
+      "scenario_name_en": "East China Disruption",
+      "impact_range": 8,
+      "impact_depth": 4,
+      "impact_duration": 31,
+      "recovery_time": 30,
+      "final_affected": 11
+    },
+    "S4": {
+      "scenario_name": "需求骤增冲击",
+      "scenario_name_en": "Demand Shock",
+      "impact_range": 20,
+      "impact_depth": 4,
+      "impact_duration": 31,
+      "recovery_time": 30,
+      "final_affected": 24
+    }
+  },
+  "assessment_results": [
+    {
+      "node_id": "T3-RE",
+      "fuzzy_score": 0.6459,
+      "bayesian_prob": 0.5284,
+      "composite_score": 0.5989,
+      "risk_level": "medium"
+    },
+    {
+      "node_id": "T3-SI",
+      "fuzzy_score": 0.621,
+      "bayesian_prob": 0.5284,
+      "composite_score": 0.5839,
+      "risk_level": "medium"
+    },
+    {
+      "node_id": "T2-ECU",
+      "fuzzy_score": 0.6181,
+      "bayesian_prob": 0.5284,
+      "composite_score": 0.5822,
+      "risk_level": "medium"
+    },
+    {
+      "node_id": "T2-SN",
+      "fuzzy_score": 0.5978,
+      "bayesian_prob": 0.5284,
+      "composite_score": 0.57,
+      "risk_level": "medium"
+    },
+    {
+      "node_id": "T1-E",
+      "fuzzy_score": 0.5544,
+      "bayesian_prob": 0.5284,
+      "composite_score": 0.544,
+      "risk_level": "medium"
+    },
+    {
+      "node_id": "T2-E2",
+      "fuzzy_score": 0.5444,
+      "bayesian_prob": 0.5284,
+      "composite_score": 0.538,
+      "risk_level": "medium"
+    },
+    {
+      "node_id": "T3-CU",
+      "fuzzy_score": 0.5358,
+      "bayesian_prob": 0.4163,
+      "composite_score": 0.488,
+      "risk_level": "medium"
+    },
+    {
+      "node_id": "OEM",
+      "fuzzy_score": 0.497,
+      "bayesian_prob": 0.3991,
+      "composite_score": 0.4578,
+      "risk_level": "medium"
+    },
+    {
+      "node_id": "T1-P",
+      "fuzzy_score": 0.4292,
+      "bayesian_prob": 0.3689,
+      "composite_score": 0.4051,
+      "risk_level": "low"
+    },
+    {
+      "node_id": "T3-ST",
+      "fuzzy_score": 0.4911,
+      "bayesian_prob": 0.25,
+      "composite_score": 0.3947,
+      "risk_level": "low"
+    },
+    {
+      "node_id": "T2-T1",
+      "fuzzy_score": 0.4784,
+      "bayesian_prob": 0.25,
+      "composite_score": 0.387,
+      "risk_level": "low"
+    },
+    {
+      "node_id": "T3-PCB",
+      "fuzzy_score": 0.4777,
+      "bayesian_prob": 0.25,
+      "composite_score": 0.3866,
+      "risk_level": "low"
+    },
+    {
+      "node_id": "T2-B1",
+      "fuzzy_score": 0.4674,
+      "bayesian_prob": 0.25,
+      "composite_score": 0.3804,
+      "risk_level": "low"
+    },
+    {
+      "node_id": "T3-MG",
+      "fuzzy_score": 0.4425,
+      "bayesian_prob": 0.25,
+      "composite_score": 0.3655,
+      "risk_level": "low"
+    },
+    {
+      "node_id": "T3-GL",
+      "fuzzy_score": 0.4305,
+      "bayesian_prob": 0.25,
+      "composite_score": 0.3583,
+      "risk_level": "low"
+    },
+    {
+      "node_id": "T2-S1",
+      "fuzzy_score": 0.4211,
+      "bayesian_prob": 0.25,
+      "composite_score": 0.3527,
+      "risk_level": "low"
+    },
+    {
+      "node_id": "T1-C",
+      "fuzzy_score": 0.4112,
+      "bayesian_prob": 0.25,
+      "composite_score": 0.3467,
+      "risk_level": "low"
+    },
+    {
+      "node_id": "T3-CF",
+      "fuzzy_score": 0.4013,
+      "bayesian_prob": 0.25,
+      "composite_score": 0.3408,
+      "risk_level": "low"
+    },
+    {
+      "node_id": "T2-W1",
+      "fuzzy_score": 0.4003,
+      "bayesian_prob": 0.25,
+      "composite_score": 0.3402,
+      "risk_level": "low"
+    },
+    {
+      "node_id": "T3-PL",
+      "fuzzy_score": 0.3893,
+      "bayesian_prob": 0.25,
+      "composite_score": 0.3336,
+      "risk_level": "low"
+    },
+    {
+      "node_id": "T2-H1",
+      "fuzzy_score": 0.3832,
+      "bayesian_prob": 0.25,
+      "composite_score": 0.3299,
+      "risk_level": "low"
+    },
+    {
+      "node_id": "T3-NI",
+      "fuzzy_score": 0.3814,
+      "bayesian_prob": 0.25,
+      "composite_score": 0.3288,
+      "risk_level": "low"
+    },
+    {
+      "node_id": "T3-RB",
+      "fuzzy_score": 0.3636,
+      "bayesian_prob": 0.25,
+      "composite_score": 0.3182,
+      "risk_level": "low"
+    },
+    {
+      "node_id": "T2-E1",
+      "fuzzy_score": 0.3634,
+      "bayesian_prob": 0.25,
+      "composite_score": 0.318,
+      "risk_level": "low"
+    },
+    {
+      "node_id": "T3-AL",
+      "fuzzy_score": 0.3292,
+      "bayesian_prob": 0.25,
+      "composite_score": 0.2975,
+      "risk_level": "low"
+    }
+  ],
+  "confusion_matrix": {
+    "tp": 8,
+    "fp": 0,
+    "tn": 17,
+    "fn": 0,
+    "accuracy": 1.0,
+    "false_negative_rate": 0.0,
+    "false_positive_rate": 0.0
+  },
+  "accuracy": 1.0,
+  "top_risk_nodes": [
+    "T3-RE",
+    "T3-SI",
+    "T2-ECU",
+    "T2-SN",
+    "T1-E"
+  ],
+  "fuzzy_top5": [
+    {
+      "node_id": "T3-RE",
+      "risk_score": 0.6459,
+      "risk_level": "very_high"
+    },
+    {
+      "node_id": "T3-SI",
+      "risk_score": 0.621,
+      "risk_level": "very_high"
+    },
+    {
+      "node_id": "T2-ECU",
+      "risk_score": 0.6181,
+      "risk_level": "very_high"
+    },
+    {
+      "node_id": "T2-SN",
+      "risk_score": 0.5978,
+      "risk_level": "very_high"
+    },
+    {
+      "node_id": "T1-E",
+      "risk_score": 0.5544,
+      "risk_level": "low"
+    }
+  ],
+  "bayesian_chip_scenario": {
+    "LogisticsDisruption": 0.25,
+    "CapacityShortage": 0.9,
+    "DeliveryDelay": 0.6645,
+    "ProductionHalt": 0.5284,
+    "MaterialShortage": 1.0,
+    "SupplierConcentration": 1.0
+  }
+}

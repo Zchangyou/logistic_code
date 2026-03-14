@@ -1,0 +1,76 @@
+{
+  "phase": 1,
+  "phase_name": "基础设施与网络本体模型",
+  "case": {
+    "name": "汽车发动机供应链",
+    "name_en": "Auto Engine Supply Chain",
+    "node_count": 25,
+    "edge_count": 38,
+    "tier_distribution": {
+      "0": 1,
+      "1": 3,
+      "2": 9,
+      "3": 12
+    }
+  },
+  "graph_metrics": {
+    "is_dag": true,
+    "material_edges": 32,
+    "density": 0.0633
+  },
+  "tier_details": {
+    "0": [
+      "OEM"
+    ],
+    "1": [
+      "T1-P",
+      "T1-C",
+      "T1-E"
+    ],
+    "2": [
+      "T2-E1",
+      "T2-E2",
+      "T2-T1",
+      "T2-B1",
+      "T2-S1",
+      "T2-W1",
+      "T2-ECU",
+      "T2-H1",
+      "T2-SN"
+    ],
+    "3": [
+      "T3-AL",
+      "T3-ST",
+      "T3-NI",
+      "T3-RB",
+      "T3-CU",
+      "T3-RE",
+      "T3-SI",
+      "T3-PCB",
+      "T3-PL",
+      "T3-CF",
+      "T3-MG",
+      "T3-GL"
+    ]
+  },
+  "high_risk_nodes": [
+    "T3-SI",
+    "T3-RE"
+  ],
+  "outputs": {
+    "figures": [
+      "F1-1_network_topology.pdf/png",
+      "F1-2_multilayer_network.pdf/png"
+    ],
+    "data": [
+      "node_attributes.csv",
+      "edge_attributes.csv",
+      "network.json",
+      "risk_scenarios.json"
+    ]
+  },
+  "validation": {
+    "node_count_match": true,
+    "tier_count_match": true
+  }
+}

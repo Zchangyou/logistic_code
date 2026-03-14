@@ -1,0 +1,396 @@
+{
+  "phase": 3,
+  "description": "风险因素分类、FMEA量化与仿真数据生成",
+  "rpn_ranking": [
+    {
+      "factor_id": "RF-SI-01",
+      "name": "芯片晶圆短缺",
+      "name_en": "Chip Wafer Shortage",
+      "rpn": 640.908,
+      "occurrence_prob": 0.8433,
+      "severity": 9.5,
+      "detectability": 8.0,
+      "category": "material_shortage",
+      "node_id": "T3-SI"
+    },
+    {
+      "factor_id": "RF-ECU-01",
+      "name": "ECU级联短缺",
+      "name_en": "ECU Cascading Shortage",
+      "rpn": 384.132,
+      "occurrence_prob": 0.6456,
+      "severity": 8.5,
+      "detectability": 7.0,
+      "category": "material_shortage",
+      "node_id": "T2-ECU"
+    },
+    {
+      "factor_id": "RF-SN-01",
+      "name": "传感器多重风险",
+      "name_en": "Sensor Module Multi-source Risk",
+      "rpn": 292.2675,
+      "occurrence_prob": 0.5567,
+      "severity": 7.5,
+      "detectability": 7.0,
+      "category": "material_shortage",
+      "node_id": "T2-SN"
+    },
+    {
+      "factor_id": "RF-RE-01",
+      "name": "稀土集中供应风险",
+      "name_en": "Rare Earth Supply Concentration",
+      "rpn": 283.5,
+      "occurrence_prob": 0.42,
+      "severity": 9.0,
+      "detectability": 7.5,
+      "category": "supplier_concentration",
+      "node_id": "T3-RE"
+    },
+    {
+      "factor_id": "RF-E2-01",
+      "name": "涡轮增压器物流脆弱",
+      "name_en": "Turbocharger Logistics Vulnerability",
+      "rpn": 237.9,
+      "occurrence_prob": 0.488,
+      "severity": 7.5,
+      "detectability": 6.5,
+      "category": "logistics_disruption",
+      "node_id": "T2-E2"
+    },
+    {
+      "factor_id": "RF-CU-01",
+      "name": "铜材潜在短缺",
+      "name_en": "Copper Material Potential Shortage",
+      "rpn": 203.736,
+      "occurrence_prob": 0.5224,
+      "severity": 6.5,
+      "detectability": 6.0,
+      "category": "material_shortage",
+      "node_id": "T3-CU"
+    },
+    {
+      "factor_id": "RF-T1E-01",
+      "name": "电子电气上游汇聚风险",
+      "name_en": "E/E Upstream Concentration Risk",
+      "rpn": 203.216,
+      "occurrence_prob": 0.3908,
+      "severity": 8.0,
+      "detectability": 6.5,
+      "category": "supplier_concentration",
+      "node_id": "T1-E"
+    },
+    {
+      "factor_id": "RF-OEM-01",
+      "name": "总装厂需求波动",
+      "name_en": "OEM Demand Volatility",
+      "rpn": 173.25,
+      "occurrence_prob": 0.7,
+      "severity": 5.5,
+      "detectability": 4.5,
+      "category": "demand_volatility",
+      "node_id": "OEM"
+    },
+    {
+      "factor_id": "RF-ST-01",
+      "name": "特种钢材短缺",
+      "name_en": "Special Steel Shortage",
+      "rpn": 132.72,
+      "occurrence_prob": 0.4424,
+      "severity": 6.0,
+      "detectability": 5.0,
+      "category": "material_shortage",
+      "node_id": "T3-ST"
+    },
+    {
+      "factor_id": "RF-NI-01",
+      "name": "镍基合金物流中断",
+      "name_en": "Nickel Alloy Logistics Disruption",
+      "rpn": 98.34,
+      "occurrence_prob": 0.298,
+      "severity": 6.0,
+      "detectability": 5.5,
+      "category": "logistics_disruption",
+      "node_id": "T3-NI"
+    },
+    {
+      "factor_id": "RF-RB-01",
+      "name": "合成橡胶物流风险",
+      "name_en": "Synthetic Rubber Logistics Risk",
+      "rpn": 96.4067,
+      "occurrence_prob": 0.3187,
+      "severity": 5.5,
+      "detectability": 5.5,
+      "category": "logistics_disruption",
+      "node_id": "T3-RB"
+    },
+    {
+      "factor_id": "RF-S1-01",
+      "name": "悬挂系统需求不确定",
+      "name_en": "Suspension System Demand Uncertainty",
+      "rpn": 67.806,
+      "occurrence_prob": 0.3767,
+      "severity": 4.5,
+      "detectability": 4.0,
+      "category": "demand_volatility",
+      "node_id": "T2-S1"
+    }
+  ],
+  "simulation_summary": {
+    "total_records": 150,
+    "nodes": 25,
+    "periods": 6,
+    "embedded_risks_nodes": 8
+  },
+  "indicator_table": [
+    {
+      "node_id": "OEM",
+      "name": "整车总装厂",
+      "tier": 0,
+      "region": "东北",
+      "material_shortage_index": 0.6167,
+      "concentration_index": 0.0004,
+      "logistics_risk_index": 0.5511,
+      "demand_volatility_index": 1.0
+    },
+    {
+      "node_id": "T1-C",
+      "name": "底盘系统集成商",
+      "tier": 1,
+      "region": "华中",
+      "material_shortage_index": 0.4717,
+      "concentration_index": 0.0003,
+      "logistics_risk_index": 0.4917,
+      "demand_volatility_index": 0.5417
+    },
+    {
+      "node_id": "T1-E",
+      "name": "电子电气系统集成商",
+      "tier": 1,
+      "region": "华南",
+      "material_shortage_index": 0.4717,
+      "concentration_index": 0.002,
+      "logistics_risk_index": 0.4037,
+      "demand_volatility_index": 0.7083
+    },
+    {
+      "node_id": "T1-P",
+      "name": "动力总成系统集成商",
+      "tier": 1,
+      "region": "华东",
+      "material_shortage_index": 0.4717,
+      "concentration_index": 0.0008,
+      "logistics_risk_index": 0.4048,
+      "demand_volatility_index": 0.875
+    },
+    {
+      "node_id": "T2-B1",
+      "name": "制动系统",
+      "tier": 2,
+      "region": "华东",
+      "material_shortage_index": 0.4556,
+      "concentration_index": 0.0,
+      "logistics_risk_index": 0.2861,
+      "demand_volatility_index": 0.4167
+    },
+    {
+      "node_id": "T2-E1",
+      "name": "发动机缸体",
+      "tier": 2,
+      "region": "华中",
+      "material_shortage_index": 0.4667,
+      "concentration_index": 0.0019,
+      "logistics_risk_index": 0.5033,
+      "demand_volatility_index": 0.4167
+    },
+    {
+      "node_id": "T2-E2",
+      "name": "涡轮增压器",
+      "tier": 2,
+      "region": "华东",
+      "material_shortage_index": 0.5278,
+      "concentration_index": 0.0083,
+      "logistics_risk_index": 0.3199,
+      "demand_volatility_index": 0.4167
+    },
+    {
+      "node_id": "T2-ECU",
+      "name": "ECU控制单元",
+      "tier": 2,
+      "region": "华南",
+      "material_shortage_index": 0.5639,
+      "concentration_index": 0.0026,
+      "logistics_risk_index": 0.3399,
+      "demand_volatility_index": 0.4167
+    },
+    {
+      "node_id": "T2-H1",
+      "name": "线束总成",
+      "tier": 2,
+      "region": "华北",
+      "material_shortage_index": 0.3944,
+      "concentration_index": 0.0204,
+      "logistics_risk_index": 0.4707,
+      "demand_volatility_index": 0.4167
+    },
+    {
+      "node_id": "T2-S1",
+      "name": "悬挂系统",
+      "tier": 2,
+      "region": "华南",
+      "material_shortage_index": 0.4056,
+      "concentration_index": 0.002,
+      "logistics_risk_index": 0.4899,
+      "demand_volatility_index": 0.4167
+    },
+    {
+      "node_id": "T2-SN",
+      "name": "传感器模组",
+      "tier": 2,
+      "region": "华东",
+      "material_shortage_index": 0.4917,
+      "concentration_index": 0.0074,
+      "logistics_risk_index": 0.309,
+      "demand_volatility_index": 0.4167
+    },
+    {
+      "node_id": "T2-T1",
+      "name": "变速箱总成",
+      "tier": 2,
+      "region": "西南",
+      "material_shortage_index": 0.6872,
+      "concentration_index": 1.0,
+      "logistics_risk_index": 0.095,
+      "demand_volatility_index": 0.4167
+    },
+    {
+      "node_id": "T2-W1",
+      "name": "转向器",
+      "tier": 2,
+      "region": "华东",
+      "material_shortage_index": 0.4806,
+      "concentration_index": 0.0014,
+      "logistics_risk_index": 0.2888,
+      "demand_volatility_index": 0.4167
+    },
+    {
+      "node_id": "T3-AL",
+      "name": "铸造铝合金",
+      "tier": 3,
+      "region": "西南",
+      "material_shortage_index": 0.4811,
+      "concentration_index": 0.0,
+      "logistics_risk_index": 0.0467,
+      "demand_volatility_index": 0.4583
+    },
+    {
+      "node_id": "T3-CF",
+      "name": "碳纤维材料",
+      "tier": 3,
+      "region": "华东",
+      "material_shortage_index": 0.6622,
+      "concentration_index": 0.0,
+      "logistics_risk_index": 0.0933,
+      "demand_volatility_index": 0.2917
+    },
+    {
+      "node_id": "T3-CU",
+      "name": "铜材",
+      "tier": 3,
+      "region": "华东",
+      "material_shortage_index": 0.5561,
+      "concentration_index": 0.0,
+      "logistics_risk_index": 0.0467,
+      "demand_volatility_index": 0.4583
+    },
+    {
+      "node_id": "T3-GL",
+      "name": "特种玻璃",
+      "tier": 3,
+      "region": "华东",
+      "material_shortage_index": 0.5311,
+      "concentration_index": 0.0,
+      "logistics_risk_index": 0.0467,
+      "demand_volatility_index": 0.2917
+    },
+    {
+      "node_id": "T3-MG",
+      "name": "镁合金",
+      "tier": 3,
+      "region": "西北",
+      "material_shortage_index": 0.5967,
+      "concentration_index": 0.0,
+      "logistics_risk_index": 0.07,
+      "demand_volatility_index": 0.2917
+    },
+    {
+      "node_id": "T3-NI",
+      "name": "镍基合金",
+      "tier": 3,
+      "region": "西北",
+      "material_shortage_index": 0.5967,
+      "concentration_index": 0.0,
+      "logistics_risk_index": 0.07,
+      "demand_volatility_index": 0.2917
+    },
+    {
+      "node_id": "T3-PCB",
+      "name": "印制电路板",
+      "tier": 3,
+      "region": "华南",
+      "material_shortage_index": 0.5967,
+      "concentration_index": 0.0,
+      "logistics_risk_index": 0.07,
+      "demand_volatility_index": 0.4583
+    },
+    {
+      "node_id": "T3-PL",
+      "name": "工程塑料",
+      "tier": 3,
+      "region": "华东",
+      "material_shortage_index": 0.4811,
+      "concentration_index": 0.0,
+      "logistics_risk_index": 0.0467,
+      "demand_volatility_index": 0.4583
+    },
+    {
+      "node_id": "T3-RB",
+      "name": "合成橡胶",
+      "tier": 3,
+      "region": "华东",
+      "material_shortage_index": 0.5311,
+      "concentration_index": 0.0,
+      "logistics_risk_index": 0.0467,
+      "demand_volatility_index": 0.4583
+    },
+    {
+      "node_id": "T3-RE",
+      "name": "稀土材料",
+      "tier": 3,
+      "region": "华北",
+      "material_shortage_index": 0.7967,
+      "concentration_index": 0.0,
+      "logistics_risk_index": 0.07,
+      "demand_volatility_index": 0.4583
+    },
+    {
+      "node_id": "T3-SI",
+      "name": "芯片晶圆",
+      "tier": 3,
+      "region": "境外",
+      "material_shortage_index": 0.9083,
+      "concentration_index": 0.0,
+      "logistics_risk_index": 0.2,
+      "demand_volatility_index": 0.2917
+    },
+    {
+      "node_id": "T3-ST",
+      "name": "特种钢材",
+      "tier": 3,
+      "region": "东北",
+      "material_shortage_index": 0.5061,
+      "concentration_index": 0.0,
+      "logistics_risk_index": 0.0467,
+      "demand_volatility_index": 0.625
+    }
+  ]
+}

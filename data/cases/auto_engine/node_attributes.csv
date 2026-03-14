@@ -1,0 +1,26 @@
+﻿node_id,name,name_en,node_type,tier,location,region,capacity_limit,lead_time,substitutability
+OEM,整车总装厂,Auto Assembly Plant,assembly,0,长春,东北,1.0,30,0.1
+T1-P,动力总成系统集成商,Powertrain Integrator,integrator,1,上海,华东,0.9,21,0.3
+T1-C,底盘系统集成商,Chassis Integrator,integrator,1,武汉,华中,0.9,21,0.3
+T1-E,电子电气系统集成商,E/E System Integrator,integrator,1,深圳,华南,0.85,21,0.3
+T2-E1,发动机缸体,Engine Block,parts_supplier,2,长沙,华中,0.85,30,0.4
+T2-E2,涡轮增压器,Turbocharger,parts_supplier,2,无锡,华东,0.8,35,0.4
+T2-T1,变速箱总成,Transmission Assembly,parts_supplier,2,重庆,西南,0.85,28,0.35
+T2-B1,制动系统,Brake System,parts_supplier,2,烟台,华东,0.9,25,0.5
+T2-S1,悬挂系统,Suspension System,parts_supplier,2,柳州,华南,0.85,25,0.5
+T2-W1,转向器,Steering System,parts_supplier,2,苏州,华东,0.85,25,0.45
+T2-ECU,ECU控制单元,ECU Control Unit,parts_supplier,2,深圳,华南,0.75,40,0.2
+T2-H1,线束总成,Wire Harness,parts_supplier,2,天津,华北,0.9,20,0.6
+T2-SN,传感器模组,Sensor Module,parts_supplier,2,合肥,华东,0.8,30,0.3
+T3-AL,铸造铝合金,Cast Aluminum Alloy,raw_material,3,昆明,西南,0.85,14,0.7
+T3-ST,特种钢材,Special Steel,raw_material,3,鞍山,东北,0.9,14,0.65
+T3-NI,镍基合金,Nickel Alloy,raw_material,3,金昌,西北,0.8,21,0.5
+T3-RB,合成橡胶,Synthetic Rubber,raw_material,3,南京,华东,0.85,14,0.6
+T3-CU,铜材,Copper,raw_material,3,铜陵,华东,0.85,14,0.55
+T3-RE,稀土材料,Rare Earth Material,raw_material,3,包头,华北,0.9,21,0.1
+T3-SI,芯片晶圆,Chip Wafer,raw_material,3,台北,境外,0.95,60,0.05
+T3-PCB,印制电路板,PCB,raw_material,3,珠海,华南,0.85,21,0.5
+T3-PL,工程塑料,Engineering Plastic,raw_material,3,宁波,华东,0.85,14,0.7
+T3-CF,碳纤维材料,Carbon Fiber,raw_material,3,威海,华东,0.8,28,0.4
+T3-MG,镁合金,Magnesium Alloy,raw_material,3,府谷,西北,0.8,21,0.5
+T3-GL,特种玻璃,Special Glass,raw_material,3,蚌埠,华东,0.85,14,0.6

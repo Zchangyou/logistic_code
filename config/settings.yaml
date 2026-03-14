@@ -1,0 +1,26 @@
+network:
+  max_supply_tier: 4
+  default_node_count: 25
+  seed: 42
+
+visualization:
+  figure_dpi: 300
+  default_figsize: [10, 6]
+  network_figsize: [12, 10]
+  output_dir: outputs/figures
+
+risk:
+  high_threshold: 0.7
+  medium_threshold: 0.4
+  low_threshold: 0.2
+
+simulation:
+  periods: 6
+  seed: 42
+
+llm:
+  provider: dashscope
+  model: qwen-turbo
+  api_key: "sk-5e97a49426494702a58a2321f751409a"
+  max_tokens: 800
+  temperature: 0.3

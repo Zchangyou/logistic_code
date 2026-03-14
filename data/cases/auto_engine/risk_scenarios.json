@@ -1,0 +1,44 @@
+{
+  "scenarios": [
+    {
+      "id": "S1",
+      "name": "芯片晶圆停供",
+      "name_en": "Chip Wafer Supply Disruption",
+      "type": "single_point",
+      "trigger_nodes": ["T3-SI"],
+      "trigger_description": "T3-SI（芯片晶圆）停供",
+      "expected_propagation": ["T3-SI", "T2-ECU", "T1-E", "OEM"],
+      "impact_duration_days": 90
+    },
+    {
+      "id": "S2",
+      "name": "稀土材料供应集中",
+      "name_en": "Rare Earth Concentration Risk",
+      "type": "concentration",
+      "trigger_nodes": ["T3-RE"],
+      "trigger_description": "T3-RE（稀土）产能下降50%",
+      "expected_propagation": ["T3-RE", "T2-SN", "T2-ECU", "T1-E", "OEM"],
+      "impact_duration_days": 60
+    },
+    {
+      "id": "S3",
+      "name": "华东区域中断",
+      "name_en": "East China Regional Disruption",
+      "type": "regional",
+      "trigger_nodes": ["T2-E2", "T2-W1", "T3-RB", "T2-SN"],
+      "trigger_description": "华东区域（无锡/苏州/南京/合肥）同时受灾",
+      "expected_propagation": ["T2-E2", "T2-W1", "T3-RB", "T2-SN", "T1-P", "T1-C", "T1-E", "OEM"],
+      "impact_duration_days": 30
+    },
+    {
+      "id": "S4",
+      "name": "OEM需求骤增",
+      "name_en": "OEM Demand Surge",
+      "type": "demand_shock",
+      "trigger_nodes": ["OEM"],
+      "trigger_description": "OEM订单量骤增50%",
+      "expected_propagation": ["OEM", "T1-P", "T1-C", "T1-E", "T2-E1", "T2-ECU", "T3-SI"],
+      "impact_duration_days": 45
+    }
+  ]
+}
